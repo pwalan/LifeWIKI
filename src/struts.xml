@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+   "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<!-- 开启使用开发模式，详细错误提示 -->
+    <!-- <constant name="struts.devMode" value="false" /> -->
+    <!-- 将对象交给spring管理 -->
+    <constant name="struts.objectFactory" value="spring" />
+    <!-- 指定资源编码类型 -->
+    <constant name="struts.i18n.encoding" value="UTF-8" /> 
+	<!-- 指定每次请求到达，重新加载资源文件 -->
+    <constant name="struts.i18n.reload" value="false" />
+    <!-- 指定每次配置文件更改后，自动重新加载 -->
+    <constant name="struts.configuration.xml.reload" value="false" />
+    <!-- 默认后缀名 -->
+	<!--     <constant name="struts.action.extension" value="do,action,jhtml,," /> -->
+	<!-- Struts Annotation -->
+	<!--     <constant name="actionPackages" value="com.test1"/> -->
+
+	<package name="json" extends="json-default">
+        <global-results>
+            <result name="error">/Error.jsp</result>
+        </global-results>
+        
+        <action name="usertest" class="service.TestAction" method="userToJson"> 
+            <result name="success" type="json" >  
+                   <param name="includeProperties">status,id</param>
+                   <param name="ignoreHierarchy">false</param>
+            </result>  
+        </action>
+        
+        <!-- 获取手机验证码，传入参数为手机号，给手机发送短信后，返回结果为 验证码（数字） -->
+        <action name="getphonecode" class="service.GetPhoneCode" method="getCode"> 
+            <result name="success" type="json" >  
+                   <param name="includeProperties">message</param>
+                   <param name="ignoreHierarchy">false</param>
+            </result>  
+        </action>
+        
+        <action name="regist" class="service.TestAction" method="register"> 
+            <result name="success" type="json" >  
+                   <param name="includeProperties">status</param>
+                   <param name="ignoreHierarchy">false</param>
+            </result>  
+        </action>
+        
+        <action name="getperson" class="service.GetPersonalInfor" method="getInfor"> 
+            <result name="success" type="json" >  
+                   <param name="includeProperties">username,pengyouquanNumber,frientNumber,zanNumber,head,phone,email</param>
+                   <param name="ignoreHierarchy">false</param>
+            </result>  
+        </action>
+        
+        <action name="saveup" class="service.UpAction" method="saveUp"> 
+            <result name="success" type="json" >  
+            </result>  
+        </action>
+
+        <!-- 获取手机验证码，传入参数为手机号，给手机发送短信后，返回结果为 验证码（数字） -->
+        <action name="getIdentifyCode" class="service.IdentifyCode" method="getCode"> 
+            <result name="success" type="json" >  
+                   <param name="includeProperties">message</param>
+                   <param name="ignoreHierarchy">false</param>
+            </result>  
+        </action>
+        
+       	<!-- 获取到thing对应的上传记录的信息,传入参数为things -->
+        <action name="getthings" class="service.GetThings" method="getthings">
+        	<result name="success" type="json" >
+        		<param name="includeProperties">message</param>
+                <param name="ignoreHierarchy">false</param>
+        	</result>
+        </action>
+    </package>
+
+</struts>    

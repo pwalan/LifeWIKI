@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="domain.Friends" table="friends">
+		<id name="SD" column="SD">
+		<generator class="identity" />
+		</id>
+		<property name="uid" column="uid" />
+		<property name="fid" column="fid" />
+	</class>
+</hibernate-mapping>
