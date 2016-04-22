@@ -73,6 +73,7 @@
                 <param name="ignoreHierarchy">false</param>
         	</result>
         </action>
+        
     </package>
 
 </struts>    
