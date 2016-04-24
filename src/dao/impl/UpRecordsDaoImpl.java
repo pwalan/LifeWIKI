@@ -36,4 +36,9 @@ public class UpRecordsDaoImpl extends HibernateDaoSupport implements UpRecordsDa
 				.find("from UpRecords u where u.keyword=?", keyword);
 	}
 
+	@Override
+	public List<UpRecords> queryAll() {
+		return (List<UpRecords>)getHibernateTemplate().find("from UpRecords");
+	}
+
 }

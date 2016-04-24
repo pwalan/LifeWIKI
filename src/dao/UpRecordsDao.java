@@ -36,4 +36,6 @@ public interface UpRecordsDao {
 	 * @param up
 	 */
 	void delete(UpRecords up);
+	
+	List<UpRecords> queryAll();
 }

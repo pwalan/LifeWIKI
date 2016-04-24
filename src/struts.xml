@@ -74,6 +74,13 @@
         	</result>
         </action>
         
+        <action name="getPengyouquan" class="service.GetThings" method="getPengyouquan">
+        	<result name="success" type="json" >
+        		<param name="includeProperties">message, wode</param>
+                <param name="ignoreHierarchy">false</param>
+        	</result>
+        </action>
+        
     </package>
 
 </struts>    
